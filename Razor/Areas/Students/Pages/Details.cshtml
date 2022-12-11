@@ -1,0 +1,89 @@
+@page
+@model Razor.Areas.Students.Pages.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Student.StudentName)[^4..]
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Student.StudentName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Student.Groups)[..^1]
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Student.Groups!.GroupName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Student.Type)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Student.Type)
+        </dd>
+        <dd class="col-sm-10">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayName("Russian")
+                    </th>
+                    <th>
+                        @Html.DisplayName("English")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Discrete math")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Physics")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Algorithms")
+                    </th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var item in Model.Student.Grades)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Russian)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.English)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DiscreteMath)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Physics)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Algorithms)
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Student"/>
+        <input type="submit" value="Выставить оценки" class="btn-success"/>
+    </form>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Student?.StudentId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

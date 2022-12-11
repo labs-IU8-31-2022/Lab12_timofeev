@@ -1,0 +1,42 @@
+@page
+@model Razor.Areas.Students.Pages.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>
+    @Html.DisplayFor(model => model.Student.StudentName)
+    @Html.DisplayFor(model => model.Student.Groups!.GroupName)
+</h1>
+
+<h4>Editing student</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Student.StudentId" />
+            <input type="hidden" asp-for="Student.StudentName" />
+            <div class="form-group">
+                <label asp-for="Student.GroupsId" class="control-label">Group</label>
+                <select asp-for="Student.GroupsId" class="form-control" asp-items="ViewBag.GroupsId"></select>
+                <span asp-validation-for="Student.GroupsId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student.Type" class="control-label"></label>
+                <select asp-for="Student.Type" class="form-control" asp-items="ViewBag.Type"></select>
+                <span asp-validation-for="Student.Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+

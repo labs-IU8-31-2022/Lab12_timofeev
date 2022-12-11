@@ -1,0 +1,57 @@
+@page
+@model Razor.Areas.Grades.Pages.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>
+    @Html.DisplayFor(model => model.Grade.Students.StudentName)
+    @Html.DisplayFor(model => model.Grade.Students.Groups!.GroupName)
+</h1>
+
+<h4>Editing grades</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Grade.GradeId" />
+            <input type="hidden" asp-for="Grade.StudentsId" />
+            <div class="form-group">
+                <label asp-for="Grade.Russian" class="control-label"></label>
+                <input asp-for="Grade.Russian" class="form-control" />
+                <span asp-validation-for="Grade.Russian" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Grade.English" class="control-label"></label>
+                <input asp-for="Grade.English" class="form-control" />
+                <span asp-validation-for="Grade.English" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Grade.DiscreteMath" class="control-label"></label>
+                <input asp-for="Grade.DiscreteMath" class="form-control" />
+                <span asp-validation-for="Grade.DiscreteMath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Grade.Physics" class="control-label"></label>
+                <input asp-for="Grade.Physics" class="form-control" />
+                <span asp-validation-for="Grade.Physics" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Grade.Algorithms" class="control-label"></label>
+                <input asp-for="Grade.Algorithms" class="form-control" />
+                <span asp-validation-for="Grade.Algorithms" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+

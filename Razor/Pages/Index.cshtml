@@ -1,0 +1,26 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Электронный университет</h1>
+    <dl class="row">
+        @*<dt class="col-sm-9">
+            
+        </dt>*@
+        <dt class="col-sm-12">
+            @Html.DisplayName("Число групп")
+            @Html.DisplayName(ViewData["Groups"]!.ToString())
+        </dt>
+        @*<dt class="col-sm-9">
+            
+        </dt>*@
+        <dt class="col-sm-12">
+            @Html.DisplayName("Число студентов")
+            @Html.DisplayName(ViewData["Students"]!.ToString())
+        </dt>
+    </dl>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
