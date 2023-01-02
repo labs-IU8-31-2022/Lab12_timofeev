@@ -2,9 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:App"
-             x:Class="App.MainPage">
+             x:Class="App.MainPage"
+             Title="Электронный журнал">
 
-    <StackLayout>
+    <StackLayout Spacing="4">
+        <Label x:Name="StudNum" FontSize="20" FontAttributes="Bold" FontFamily="Lobster"/>
+        <Label x:Name="GroupNum" FontSize="20" FontAttributes="Bold" FontFamily="Lobster"/>
         <!-- Place new controls here -->
         <Label Text="Welcome to Xamarin.Forms!" 
            HorizontalOptions="Center"
