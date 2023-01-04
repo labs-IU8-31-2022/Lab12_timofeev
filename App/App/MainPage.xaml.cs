@@ -16,7 +16,7 @@ namespace App
             InitializeComponent();
         }
 
-        protected override async void OnAppearing()
+        protected override void OnAppearing()
         {
             var db = new University();
             StudNum.Text = $"Число студентов {db.Students.Count()}";
@@ -34,5 +34,18 @@ namespace App
         {
             
         }
+
+        private async void StudList(object sender, EventArgs e)
+        {
+            var page = new Students();
+            await Navigation.PushAsync(page);
+        }
+
+        private async void GroupList(object sender, EventArgs e)
+        {
+            var page = new Groups();
+            await Navigation.PushAsync(page);
+        }
+        
     }
 }

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:app="clr-namespace:App;assembly=App"
+             x:Class="App.StudentInfoGeneral" x:DataType="app:Student">
+    <ContentPage.Content>
+        <StackLayout Padding="5">
+            <Grid BackgroundColor="Gray" RowSpacing="1" ColumnSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Text="Имя" FontSize="20" BackgroundColor="#FFFAFAFA" />
+                <Label Grid.Row="0" Grid.Column="1" Text="{Binding StudentName}" FontSize="20"
+                       BackgroundColor="#FFFAFAFA" />
+                <Label Grid.Row="1" Grid.Column="0" Text="Группа" FontSize="20" BackgroundColor="#FFFAFAFA" />
+                <Label Grid.Row="1" Grid.Column="1" Text="{Binding Groups.GroupName}" FontSize="20"
+                       BackgroundColor="#FFFAFAFA" />
+                <Label Grid.Row="2" Grid.Column="0" Text="Формат обучения" FontSize="20" BackgroundColor="#FFFAFAFA" />
+                <Label Grid.Row="2" Grid.Column="1" Text="{Binding Type}" FontSize="20" BackgroundColor="#FFFAFAFA" />
+            </Grid>
+            <Button x:Name="GradeBut" Text="Выставить оценки" BackgroundColor="Green" Clicked="GradeAddButton" />
+
+            <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
+                <Label Text="Danger ZONE" TextColor="Brown" FontSize="20" />
+                <Switch IsToggled="False" HorizontalOptions="EndAndExpand" OnColor="Red" ThumbColor="Black"
+                        Toggled="ToggleSwitch" />
+            </StackLayout>
+            <Button x:Name="EditBut" Text="Редактировать" BackgroundColor="DarkOrange" Clicked="EditButton" />
+            <Button x:Name="DelBut" IsEnabled="False" Text="Удалить" BackgroundColor="Firebrick" Clicked="DeleteButton" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:app="clr-namespace:App;assembly=App"
+             x:Class="App.GroupInfo" x:DataType="app:Group"
+             Title="Информация о группе">
+    <ContentPage.Content>
+        <StackLayout Padding="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Text="Название группы" FontSize="20" />
+                <Label Grid.Row="0" Grid.Column="1" Text="{Binding GroupName}" FontSize="20" />
+                <Label Grid.Row="1" Grid.Column="0" Text="Число студентов" FontSize="20" />
+                <Label Grid.Row="1" Grid.Column="1" Text="{Binding Students.Count}" FontSize="20" />
+            </Grid>
+            <ScrollView VerticalScrollBarVisibility="Never" VerticalOptions="FillAndExpand">
+                <StackLayout>
+                    <ListView x:Name="StudList" ItemsSource="{Binding Students}" ItemSelected="OnItemSelected" Margin="5">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell x:DataType="app:Student" >
+                                    <ViewCell.View>
+                                        <Grid Padding="5">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Column="0" Text="{Binding StudentName}" FontSize="20"
+                                                   FontAttributes="Bold" HorizontalOptions="Center" />
+                                            <Label Grid.Column="1" Text="{Binding Type}" FontSize="20"
+                                                   HorizontalOptions="Center" />
+                                        </Grid>
+                                    </ViewCell.View>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </ScrollView>
+            <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
+                <Label Text="Danger ZONE" TextColor="Brown" FontSize="20" />
+                <Switch IsToggled="False" HorizontalOptions="EndAndExpand" OnColor="Red" ThumbColor="Black"
+                        Toggled="ToggleSwitch" />
+            </StackLayout>
+            <Button x:Name="EditBut" Text="Редактировать" BackgroundColor="DarkOrange" Clicked="EditButton" />
+            <Button x:Name="DelBut" IsEnabled="False" Text="Удалить" BackgroundColor="Firebrick" Clicked="DeleteButton" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

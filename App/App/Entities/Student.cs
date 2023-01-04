@@ -17,4 +17,11 @@ public class Student
     public virtual ICollection<Grade> Grades { get; } = new List<Grade>();
 
     public virtual Group? Groups { get; set; }
+    
+    public Student() {}
+
+    public Student(string name)
+    {
+        StudentName = name;
+    }
 }

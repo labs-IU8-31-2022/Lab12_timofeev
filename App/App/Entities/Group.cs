@@ -10,5 +10,7 @@ public class Group
 
     public string? GroupName { get; set; }
     
-    public virtual ICollection<Student> Students { get; } = new List<Student>();
+    public virtual ICollection<Student>? Students { get; } = new List<Student>();
+    
+    public Group() {}
 }

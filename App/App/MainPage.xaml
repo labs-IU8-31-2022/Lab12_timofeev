@@ -8,10 +8,9 @@
     <StackLayout Spacing="4">
         <Label x:Name="StudNum" FontSize="20" FontAttributes="Bold" FontFamily="Lobster"/>
         <Label x:Name="GroupNum" FontSize="20" FontAttributes="Bold" FontFamily="Lobster"/>
+        <Button x:Name="StudButton" Text="Список студентов" Clicked="StudList" VerticalOptions="EndAndExpand"/>
+        <Button x:Name="GroupButton" Text="Список групп" Clicked="GroupList" VerticalOptions="End"/>
         <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
     </StackLayout>
 
 </ContentPage>
