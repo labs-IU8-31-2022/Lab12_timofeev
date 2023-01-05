@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,10 +13,11 @@ public partial class GroupEditAndAdd : ContentPage
 {
     private Group Group { get; set; }
     private bool _edit;
+
     public GroupEditAndAdd(Group? group)
     {
         InitializeComponent();
-        
+
         if (group is null)
         {
             Group = new Group();
@@ -28,6 +28,7 @@ public partial class GroupEditAndAdd : ContentPage
             Group = group;
             _edit = true;
         }
+
         Title = _edit ? "Редактирование группы" : "Добавление новой группы";
 
         BindingContext = Group;
@@ -54,6 +55,7 @@ public partial class GroupEditAndAdd : ContentPage
             var group = await db.Groups.FindAsync(Group.GroupId);
             db.Entry(group).CurrentValues.SetValues(Group);
         }
+
         await db.SaveChangesAsync();
         await Navigation.PopAsync();
         Button.IsEnabled = true;

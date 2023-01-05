@@ -83,10 +83,6 @@ public partial class GradeEditAndAdd : ContentPage
         {
             Device.BeginInvokeOnMainThread(() => entry.Text = e.OldTextValue ?? "");
         }
-        // if (!int.TryParse(e.NewTextValue, out var temp) || temp > 100)
-        // {
-        //     Device.BeginInvokeOnMainThread(() => entry.Text = e.OldTextValue ?? "");
-        // }
     }
 
     private async void DeleteButton(object sender, EventArgs e)
@@ -98,6 +94,5 @@ public partial class GradeEditAndAdd : ContentPage
         db.Grades.Remove(grade!);
         await db.SaveChangesAsync();
         await Navigation.PopAsync();
-        //BindingContext = null;
     }
 }

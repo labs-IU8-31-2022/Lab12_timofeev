@@ -21,18 +21,16 @@ namespace App
             var db = new University();
             StudNum.Text = $"Число студентов {db.Students.Count()}";
             GroupNum.Text = $"Число групп {db.Groups.Count()}";
-            
+
             base.OnAppearing();
         }
 
         private async void OnItemSelected(object sender, EventArgs e)
         {
-            
         }
 
         private async void CreateStudent(object sender, EventArgs e)
         {
-            
         }
 
         private async void StudList(object sender, EventArgs e)
@@ -46,6 +44,5 @@ namespace App
             var page = new Groups();
             await Navigation.PushAsync(page);
         }
-        
     }
 }

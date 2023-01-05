@@ -14,6 +14,7 @@ public partial class StudentEditAndAdd : ContentPage
 {
     private Student Student { get; set; }
     private bool _edit;
+
     public StudentEditAndAdd(Student? student)
     {
         InitializeComponent();
@@ -35,14 +36,10 @@ public partial class StudentEditAndAdd : ContentPage
                 Picker1.SelectedItem = items.SingleOrDefault(s => s.GroupId == Student.GroupsId);
             }
         }
+
         Title = _edit ? "Редактирование студента" : "Добавление нового студента";
 
         BindingContext = Student;
-    }
-
-    protected override void OnAppearing()
-    {
-        base.OnAppearing();
     }
 
     private async void StudAdd(object sender, EventArgs e)
@@ -70,6 +67,7 @@ public partial class StudentEditAndAdd : ContentPage
             var student = await db.Students.FindAsync(Student.StudentId);
             db.Entry(student).CurrentValues.SetValues(Student);
         }
+
         await db.SaveChangesAsync();
         await Navigation.PopAsync();
         Button.IsEnabled = true;

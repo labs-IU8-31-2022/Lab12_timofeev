@@ -14,7 +14,7 @@ namespace App;
 public partial class GroupInfo : ContentPage
 {
     public Group? Group { get; set; }
-    
+
     public GroupInfo(Group? group)
     {
         InitializeComponent();
@@ -42,7 +42,7 @@ public partial class GroupInfo : ContentPage
         StudList.SelectedItem = null;
         await Navigation.PushAsync(new StudentInfo(student));
     }
-    
+
     private async void EditButton(object sender, EventArgs e)
     {
         EditBut.IsEnabled = false;
@@ -50,17 +50,15 @@ public partial class GroupInfo : ContentPage
         await Navigation.PushAsync(page);
         EditBut.IsEnabled = true;
     }
-    
+
     private async void DeleteButton(object sender, EventArgs e)
     {
         var result = await DisplayAlert("Подтверждение действия", "Точно хотите удалить группу?", "Да", "Нет");
         if (!result) return;
         var db = new University();
         var group = BindingContext as Group;
-        //db.Entry(group).Entity?.Students.ForEach(s => s.GroupsId = null);
         await db.Students.Where(s => s.GroupsId == group!.GroupId).ForEachAsync(s => s.GroupsId = null);
         db.Entry(group).State = EntityState.Deleted;
-        //db.Groups.Remove(group!);
         await db.SaveChangesAsync();
         await Navigation.PopAsync();
         BindingContext = null;

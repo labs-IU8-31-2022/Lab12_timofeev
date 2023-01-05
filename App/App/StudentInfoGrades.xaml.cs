@@ -15,7 +15,7 @@ public partial class StudentInfoGrades : ContentPage
     {
         InitializeComponent();
     }
-    
+
     protected override void OnAppearing()
     {
         var db = new University();

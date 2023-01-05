@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -23,7 +22,7 @@ public partial class Students : ContentPage
         StudList.ItemsSource = db.Students.ToList();
         base.OnAppearing();
     }
-    
+
     private async void OnItemSelected(object sender, EventArgs e)
     {
         if (StudList.SelectedItem is not Student student) return;

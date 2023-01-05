@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,7 +12,7 @@ namespace App;
 public partial class StudentInfo : TabbedPage
 {
     public Student? Student { get; set; }
-    
+
     public StudentInfo(Student? student)
     {
         InitializeComponent();
@@ -23,7 +22,7 @@ public partial class StudentInfo : TabbedPage
             Navigation.PopAsync();
             return;
         }
-        
+
         Student = student;
         BindingContext = Student;
     }

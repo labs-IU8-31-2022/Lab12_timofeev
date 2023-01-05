@@ -23,7 +23,7 @@ public partial class Groups : ContentPage
         GroupList.ItemsSource = db.Groups.ToList().OrderBy(group => group.GroupName);
         base.OnAppearing();
     }
-    
+
     private async void OnItemSelected(object sender, EventArgs e)
     {
         if (GroupList.SelectedItem is not Group group) return;

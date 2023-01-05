@@ -10,15 +10,7 @@ namespace App
     public partial class App : Application
     {
         private const string DatabaseName = "eu.db";
-        //private static Databases? _database;
-        /*public static Databases Database
-        {
-            get
-            {
-                return _database ??= new Databases(Path.Combine(
-                    Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), DatabaseName));
-            }
-        }*/
+
         public App()
         {
             InitializeComponent();
