@@ -33,7 +33,10 @@ public partial class StudentInfoGeneral : ContentPage
 
     private async void GradeAddButton(object sender, EventArgs e)
     {
-        /////////////////////////
+        GradeBut.IsEnabled = false;
+        var page = new GradeEditAndAdd(null, BindingContext as Student ?? throw new InvalidOperationException());
+        await Navigation.PushAsync(page);
+        GradeBut.IsEnabled = true;
     }
 
     private async void DeleteButton(object sender, EventArgs e)

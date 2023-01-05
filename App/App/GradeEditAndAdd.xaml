@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:app="clr-namespace:App;assembly=App"
+             x:Class="App.GradeEditAndAdd" x:DataType="app:Grade">
+    <ContentPage.Content>
+        <StackLayout Padding="7">
+            <Label x:Name="Name" FontSize="20" />
+            <Label x:Name="Error" FontSize="15" />
+            <Label Text="Русский" />
+            <Entry Text="{Binding Russian}" x:Name="Rus" Placeholder="Введите баллы" TextChanged="CheckText" />
+            <Label Text="Английский" />
+            <Entry Text="{Binding English}" x:Name="Eng" Placeholder="Введите баллы" TextChanged="CheckText" />
+            <Label Text="Дискретная математика" />
+            <Entry Text="{Binding DiscreteMath}" x:Name="Dis" Placeholder="Введите баллы" TextChanged="CheckText" />
+            <Label Text="Физика" />
+            <Entry Text="{Binding Physics}" x:Name="Phy" Placeholder="Введите баллы" TextChanged="CheckText" />
+            <Label Text="Алгоритмические языки" />
+            <Entry Text="{Binding Algorithms}" x:Name="Alg" Placeholder="Введите баллы" TextChanged="CheckText" />
+            <Button x:Name="Button" Text="Сохранить" Clicked="GradeAdd" />
+
+            <Button x:Name="DelBut" Text="Удалить" BackgroundColor="Firebrick" Clicked="DeleteButton"
+                    VerticalOptions="EndAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
