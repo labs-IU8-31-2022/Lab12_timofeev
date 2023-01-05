@@ -19,33 +19,30 @@
                 <Label Grid.Column="0" Text="Название" HorizontalOptions="Center" />
                 <Label Grid.Column="1" Text="Число студентов" HorizontalOptions="Center" />
             </Grid>
-            <ScrollView VerticalScrollBarVisibility="Never" VerticalOptions="FillAndExpand">
-                <StackLayout>
-                    <ListView x:Name="GroupList" ItemSelected="OnItemSelected" x:DataType="app:Group" Margin="5">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <ViewCell.View>
-                                        <Grid Padding="5">
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="Auto" />
-                                            </Grid.RowDefinitions>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*" />
-                                                <ColumnDefinition Width="*" />
-                                            </Grid.ColumnDefinitions>
-                                            <Label Grid.Column="0" Text="{Binding GroupName}" FontSize="20"
-                                                   FontAttributes="Bold" HorizontalOptions="Center" />
-                                            <Label Grid.Column="1" Text="{Binding Students.Count}" FontSize="20"
-                                                   HorizontalOptions="Center" />
-                                        </Grid>
-                                    </ViewCell.View>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </StackLayout>
-            </ScrollView>
+            <ListView x:Name="GroupList" ItemSelected="OnItemSelected" x:DataType="app:Group" Margin="5"
+                      VerticalScrollBarVisibility="Never">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Grid Padding="5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Text="{Binding GroupName}" FontSize="20"
+                                           FontAttributes="Bold" HorizontalOptions="Center" />
+                                    <Label Grid.Column="1" Text="{Binding Students.Count}" FontSize="20"
+                                           HorizontalOptions="Center" />
+                                </Grid>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
