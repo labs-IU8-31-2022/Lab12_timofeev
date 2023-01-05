@@ -5,10 +5,11 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Xamarin.Forms.Platform.Android;
 
 namespace App.Droid
 {
-    [Activity(Label = "App", Theme = "@style/MainTheme", MainLauncher = true,
+    [Activity(Label = "Electronic University", Icon = "@drawable/icon1", Theme = "@style/MainTheme", MainLauncher = true,
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
