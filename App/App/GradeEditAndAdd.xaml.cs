@@ -83,6 +83,10 @@ public partial class GradeEditAndAdd : ContentPage
         {
             Device.BeginInvokeOnMainThread(() => entry.Text = e.OldTextValue ?? "");
         }
+        else
+        {
+            Button.BackgroundColor = Color.Default;
+        }
     }
 
     private async void DeleteButton(object sender, EventArgs e)

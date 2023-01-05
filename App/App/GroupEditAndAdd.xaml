@@ -9,7 +9,8 @@
     <ContentPage.Content>
         <StackLayout Padding="7">
             <Label Text="Название группы" />
-            <Entry x:Name="Name" Placeholder="Введите название" Text="{Binding GroupName}" />
+            <Entry x:Name="Name" Placeholder="Введите название" Text="{Binding GroupName}"
+                   TextChanged="NameTextChanged" />
             <Button x:Name="Button" Text="Сохранить" Clicked="GrAdd" />
         </StackLayout>
     </ContentPage.Content>

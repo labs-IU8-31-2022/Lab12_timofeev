@@ -8,7 +8,7 @@
              Title="">
     <StackLayout Padding="7">
         <Label Text="Имя" />
-        <Entry x:Name="Name" Placeholder="Введите имя" Text="{Binding StudentName}" />
+        <Entry x:Name="Name" Placeholder="Введите имя" Text="{Binding StudentName}" TextChanged="NameTextChanged" />
         <Label Text="Группа" />
         <Picker x:Name="Picker1"
                 x:DataType="app:Group" ItemDisplayBinding="{Binding Path=GroupName}" />

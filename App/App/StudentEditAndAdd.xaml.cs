@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Castle.Core.Internal;
 using Microsoft.EntityFrameworkCore;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -71,5 +72,12 @@ public partial class StudentEditAndAdd : ContentPage
         await db.SaveChangesAsync();
         await Navigation.PopAsync();
         Button.IsEnabled = true;
+    }
+
+    private void NameTextChanged(object sender, TextChangedEventArgs e)
+    {
+        if (!e.OldTextValue.IsNullOrEmpty()) return;
+        Button.BackgroundColor = Color.Default;
+        Name.Placeholder = "Введите имя";
     }
 }
