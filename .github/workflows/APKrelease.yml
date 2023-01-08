@@ -1,31 +1,26 @@
 name: APP release
 on: [workflow_dispatch]
-        
+
 jobs:
   APP:
-    runs-on: macos-latest
+    runs-on: windows-latest
     timeout-minutes: 30
     
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        
-      - name: Set default Xamarin SDK versions
-        run: |
-          $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.10 --android=10.2
-          
-      - name: Setup .NET Core SDK 6.0.404
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: '6.0.404'
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1.1
 
       - name: Restore NuGet packages
-        run: nuget restore
-        
+        run: msbuild ./EU.sln /restore /p:Configuration=Release
+
       - name: Build
         run: |
-          cd App
-          msbuild /t:SignAndroidPackage /t:PackageForAndroid /p:Configuration=Release /p:AndroidPackageFormat=apk
+          cd App/App.Droid
+          msbuild App.Droid.csproj /p:Configuration=Release
           cd bin/Release
-          ls
+          dir
+        
     
