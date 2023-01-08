@@ -19,7 +19,7 @@ jobs:
       - name: Build
         run: |
           cd App/App.Droid
-          msbuild App.Droid.csproj /p:Configuration=Release
+          msbuild App.Droid.csproj /p:Configuration=Release /p:OutputPath=bin/Release/
           cd bin/Release
           dir
         
