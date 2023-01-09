@@ -1,5 +1,8 @@
 name: APP release
-on: [workflow_dispatch]
+on:
+  push:
+    tags:
+      - 'v*'
 
 jobs:
   APP:
@@ -23,4 +26,33 @@ jobs:
           cd bin/Release
           dir
         
-    
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+          
+      - name: Upload APK
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./App/App.Droid/bin/Release/undefined.EU.apk
+          asset_name: undefined.EU.apk
+          asset_content_type: application/apk
+          
+      - name: Upload Signed APK
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./App/App.Droid/bin/Release/undefined.EU-Signed.apk
+          asset_name: undefined.EU-Signed.apk
+          asset_content_type: application/apk
