@@ -7,25 +7,15 @@ namespace UniversityAPI.Controllers;
 
 public sealed partial class University : DbContext
 {
-    private static string? _dataPath;
 
     public University()
     {
-        if (_dataPath is not null)
-            Database.EnsureCreated();
-        else
-            throw new Exception();
+        Database.EnsureCreated();
     }
 
     public University(DbContextOptions<University> options)
         : base(options)
     {
-    }
-
-    public University(string path)
-    {
-        Database.EnsureCreated();
-        _dataPath = path;
     }
 
     public DbSet<Grade> Grades { get; set; } = null!;

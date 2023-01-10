@@ -4,7 +4,7 @@ using UniversityAPI.Controllers;
 var builder = WebApplication.CreateBuilder(args);
 
 var connection = builder.Configuration.GetConnectionString("UniversityConnection");
-
+new University();
 builder.Services.AddDbContext<University>(options => options.UseLazyLoadingProxies().UseSqlServer(connection));
 builder.Services.AddControllersWithViews()
     .AddNewtonsoftJson(options =>
