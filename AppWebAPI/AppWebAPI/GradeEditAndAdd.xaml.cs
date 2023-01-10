@@ -46,6 +46,7 @@ public partial class GradeEditAndAdd : ContentPage
 
     private async void GradeAdd(object sender, EventArgs e)
     {
+        var grade = new GradeCont();
         if (Rus.Text.IsNullOrEmpty() && Eng.Text.IsNullOrEmpty() && Dis.Text.IsNullOrEmpty() &&
             Phy.Text.IsNullOrEmpty() && Alg.Text.IsNullOrEmpty())
         {
@@ -55,7 +56,6 @@ public partial class GradeEditAndAdd : ContentPage
         }
 
         Button.IsEnabled = false;
-        var grade = new GradeCont();
         Grade.Russian = int.TryParse(Rus.Text, out _) ? Convert.ToInt32(Rus.Text) : null;
         Grade.English = int.TryParse(Eng.Text, out _) ? Convert.ToInt32(Eng.Text) : null;
         Grade.DiscreteMath = int.TryParse(Dis.Text, out _) ? Convert.ToInt32(Dis.Text) : null;

@@ -69,12 +69,9 @@ public partial class StudentEditAndAdd : ContentPage
         }
         else
         {
-            //var student = await db.Students.FindAsync(Student.StudentId);
-            //db.Entry(student).CurrentValues.SetValues(Student);
             await db.Update(Student);
         }
-
-        //await db.SaveChangesAsync();
+        
         await Navigation.PopAsync();
         Button.IsEnabled = true;
     }

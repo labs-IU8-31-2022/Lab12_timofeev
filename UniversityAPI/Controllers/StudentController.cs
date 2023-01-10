@@ -40,7 +40,7 @@ public class StudentController : ControllerBase
             return BadRequest();
         }
 
-        _db.Students.Add(student);
+        await _db.Students.AddAsync(student);
         await _db.SaveChangesAsync();
         return Ok();
     }
@@ -58,8 +58,8 @@ public class StudentController : ControllerBase
             return NotFound();
         }
 
-        var stud = await _db.Grades.FindAsync(student.StudentId);
-        _db.Entry(stud).CurrentValues.SetValues(student);
+        var stud = await _db.Students.FindAsync(student.StudentId);
+        _db.Entry(stud!).CurrentValues.SetValues(student);
         await _db.SaveChangesAsync();
         return Ok();
     }

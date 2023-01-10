@@ -40,7 +40,7 @@ public class GroupController : ControllerBase
             return BadRequest();
         }
 
-        _db.Groups.Add(group);
+        await _db.Groups.AddAsync(group);
         await _db.SaveChangesAsync();
         return Ok();
     }
@@ -59,7 +59,7 @@ public class GroupController : ControllerBase
         }
 
         var gr = await _db.Groups.FindAsync(group.GroupId);
-        _db.Entry(gr).CurrentValues.SetValues(group);
+        _db.Entry(gr!).CurrentValues.SetValues(group);
         await _db.SaveChangesAsync();
         return Ok();
     }

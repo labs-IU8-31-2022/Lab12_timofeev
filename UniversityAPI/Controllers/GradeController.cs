@@ -35,12 +35,12 @@ public class GradeController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<Grade>> Post(Grade grade)
     {
-        if (grade.StudentsId is 0)
+        if (grade.StudentsId is -1)
         {
             return BadRequest();
         }
 
-        _db.Grades.Add(grade);
+        await _db.Grades.AddAsync(grade);
         await _db.SaveChangesAsync();
         return Ok();
     }
@@ -59,7 +59,7 @@ public class GradeController : ControllerBase
         }
 
         var gr = await _db.Grades.FindAsync(grade.GradeId);
-        _db.Entry(gr).CurrentValues.SetValues(grade);
+        _db.Entry(gr!).CurrentValues.SetValues(grade);
         await _db.SaveChangesAsync();
         return Ok();
     }
