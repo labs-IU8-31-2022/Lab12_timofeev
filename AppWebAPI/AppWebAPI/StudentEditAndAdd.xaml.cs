@@ -20,9 +20,6 @@ public partial class StudentEditAndAdd : ContentPage
     {
         InitializeComponent();
 
-        var db = new University();
-        var items = db.Groups.OrderBy(group => group.GroupName).ToList();
-        Picker1.ItemsSource = items;
         if (student is null)
         {
             Student = new Student();
@@ -32,20 +29,27 @@ public partial class StudentEditAndAdd : ContentPage
         {
             Student = student;
             _edit = true;
-            if (student.Groups is not null)
-            {
-                Picker1.SelectedItem = items.SingleOrDefault(s => s.GroupId == Student.GroupsId);
-            }
         }
 
         Title = _edit ? "Редактирование студента" : "Добавление нового студента";
-
+        
         BindingContext = Student;
+    }
+
+    protected override async void OnAppearing()
+    {
+        var gr = new GroupCont();
+        var items = (await gr.GetAll())?.OrderBy(group => group.GroupName).ToList();
+        Picker1.ItemsSource = items;
+        if (Student.Groups is not null)
+        {
+            Picker1.SelectedItem = items?.SingleOrDefault(s => s.GroupId == Student.GroupsId);
+        }
     }
 
     private async void StudAdd(object sender, EventArgs e)
     {
-        var db = new University();
+        var db = new StudCont();
         if (Name.Text is null || Name.Text.Length == 0)
         {
             Button.BackgroundColor = Color.Red;
@@ -61,15 +65,16 @@ public partial class StudentEditAndAdd : ContentPage
             Student.Type = Picker2.SelectedItem.ToString();
         if (!_edit)
         {
-            await db.Students.AddAsync(Student);
+            await db.Add(Student);
         }
         else
         {
-            var student = await db.Students.FindAsync(Student.StudentId);
-            db.Entry(student).CurrentValues.SetValues(Student);
+            //var student = await db.Students.FindAsync(Student.StudentId);
+            //db.Entry(student).CurrentValues.SetValues(Student);
+            await db.Update(Student);
         }
 
-        await db.SaveChangesAsync();
+        //await db.SaveChangesAsync();
         await Navigation.PopAsync();
         Button.IsEnabled = true;
     }

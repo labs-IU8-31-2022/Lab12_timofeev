@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using Microsoft.Extensions.DependencyInjection;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,15 +10,10 @@ namespace AppWebAPI
 {
     public partial class App : Application
     {
-        private const string DatabaseName = "eu.db";
-
         public App()
         {
             InitializeComponent();
             
-            var dbPath = Path.Combine(
-                Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), DatabaseName);
-            var db = new University(dbPath);
             MainPage = new NavigationPage(new MainPage());
         }
 

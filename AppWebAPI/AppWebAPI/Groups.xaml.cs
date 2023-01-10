@@ -17,10 +17,10 @@ public partial class Groups : ContentPage
         InitializeComponent();
     }
     
-    protected override void OnAppearing()
+    protected override async void OnAppearing()
     {
-        var db = new University();
-        GroupList.ItemsSource = db.Groups.ToList().OrderBy(group => group.GroupName);
+        var group = new GroupCont();
+        GroupList.ItemsSource = (await group.GetAll())?.OrderBy(gr => gr.GroupName).ToList();
         base.OnAppearing();
     }
 

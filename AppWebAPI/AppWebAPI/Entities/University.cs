@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
@@ -69,4 +69,4 @@ public sealed partial class University : DbContext
                 .HasConstraintName("Students_Groups_null_fk");
         });
     }
-}
+}*/

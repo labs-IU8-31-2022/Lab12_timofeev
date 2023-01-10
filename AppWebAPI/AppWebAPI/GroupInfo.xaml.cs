@@ -29,10 +29,10 @@ public partial class GroupInfo : ContentPage
         BindingContext = Group;
     }
 
-    protected override void OnAppearing()
+    protected override async void OnAppearing()
     {
-        var db = new University();
-        BindingContext = db.Groups.FindAsync((BindingContext as Group)?.GroupId).Result;
+        var db = new GroupCont();
+        BindingContext = await db.Get((BindingContext as Group)!.GroupId);
         base.OnAppearing();
     }
 
@@ -55,11 +55,9 @@ public partial class GroupInfo : ContentPage
     {
         var result = await DisplayAlert("Подтверждение действия", "Точно хотите удалить группу?", "Да", "Нет");
         if (!result) return;
-        var db = new University();
+        var db = new GroupCont();
         var group = BindingContext as Group;
-        await db.Students.Where(s => s.GroupsId == group!.GroupId).ForEachAsync(s => s.GroupsId = null);
-        db.Entry(group).State = EntityState.Deleted;
-        await db.SaveChangesAsync();
+        await db.Delete(group!.GroupId);
         await Navigation.PopAsync();
         BindingContext = null;
     }

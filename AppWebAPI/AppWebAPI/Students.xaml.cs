@@ -16,11 +16,10 @@ public partial class Students : ContentPage
         InitializeComponent();
     }
 
-    protected override void OnAppearing()
+    protected override async void OnAppearing()
     {
         var stud = new StudCont();
-        var items = stud.GetAll().Result;
-        var db = new University();
+        var items = await stud.GetAll();
         StudList.ItemsSource = items;
         base.OnAppearing();
     }

@@ -58,7 +58,8 @@ public class GroupController : ControllerBase
             return NotFound();
         }
 
-        _db.Groups.Update(group);
+        var gr = await _db.Groups.FindAsync(group.GroupId);
+        _db.Entry(gr).CurrentValues.SetValues(group);
         await _db.SaveChangesAsync();
         return Ok();
     }

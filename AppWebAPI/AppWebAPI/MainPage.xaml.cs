@@ -17,12 +17,12 @@ namespace AppWebAPI
             InitializeComponent();
         }
 
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
-            var db = new University();
-            StudNum.Text = $"Число студентов {db.Students.Count()}";
-            GroupNum.Text = $"Число групп {db.Groups.Count()}";
-
+            var stud = new StudCont();
+            var group = new GroupCont();
+            StudNum.Text = $"Число студентов {(await stud.GetAll())?.Count()}";
+            GroupNum.Text = $"Число групп {(await group.GetAll())?.Count()}";
             base.OnAppearing();
         }
 
@@ -41,6 +41,7 @@ namespace AppWebAPI
                 Address.TextColor = Color.Red;
                 return;
             }
+
             var page = new Students();
             await Navigation.PushAsync(page);
         }
@@ -52,6 +53,7 @@ namespace AppWebAPI
                 Address.TextColor = Color.Red;
                 return;
             }
+
             var page = new Groups();
             await Navigation.PushAsync(page);
         }

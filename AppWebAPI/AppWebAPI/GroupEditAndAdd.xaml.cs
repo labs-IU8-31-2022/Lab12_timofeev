@@ -37,7 +37,7 @@ public partial class GroupEditAndAdd : ContentPage
 
     private async void GrAdd(object sender, EventArgs e)
     {
-        var db = new University();
+        var db = new GroupCont();
         if (Name.Text is null || Name.Text.Length == 0)
         {
             Button.BackgroundColor = Color.Red;
@@ -49,15 +49,13 @@ public partial class GroupEditAndAdd : ContentPage
         Group.GroupName = Name.Text;
         if (!_edit)
         {
-            await db.Groups.AddAsync(Group);
+            await db.Add(Group);
         }
         else
         {
-            var group = await db.Groups.FindAsync(Group.GroupId);
-            db.Entry(group).CurrentValues.SetValues(Group);
+            await db.Update(Group);
         }
-
-        await db.SaveChangesAsync();
+        
         await Navigation.PopAsync();
         Button.IsEnabled = true;
     }

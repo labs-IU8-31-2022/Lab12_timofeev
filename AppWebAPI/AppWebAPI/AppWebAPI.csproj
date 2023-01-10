@@ -14,6 +14,13 @@
     <ItemGroup>
         <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="5.0.17" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.17" />
-        <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+        <PackageReference Include="Xamarin.Forms" Version="5.0.0.2545" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="Mono.Android">
+        <HintPath>..\..\..\..\AppData\Local\JetBrains\BuildTools\ReferenceAssemblies\MonoAndroid\v11.0\Mono.Android.dll</HintPath>
+      </Reference>
     </ItemGroup>
 </Project>

@@ -16,10 +16,10 @@ public partial class StudentInfoGrades : ContentPage
         InitializeComponent();
     }
 
-    protected override void OnAppearing()
+    protected override async void OnAppearing()
     {
-        var db = new University();
-        BindingContext = db.Students.FindAsync((BindingContext as Student)?.StudentId).Result;
+        var db = new StudCont();
+        BindingContext = await db.Get((BindingContext as Student)!.StudentId);
         base.OnAppearing();
     }
 

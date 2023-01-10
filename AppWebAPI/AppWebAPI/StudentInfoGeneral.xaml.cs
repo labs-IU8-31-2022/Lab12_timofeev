@@ -16,10 +16,10 @@ public partial class StudentInfoGeneral : ContentPage
         InitializeComponent();
     }
 
-    protected override void OnAppearing()
+    protected override async void OnAppearing()
     {
-        var db = new University();
-        BindingContext = db.Students.FindAsync((BindingContext as Student)?.StudentId).Result;
+        var db = new StudCont();
+        BindingContext = await db.Get((BindingContext as Student)!.StudentId);
         base.OnAppearing();
     }
 
@@ -43,11 +43,9 @@ public partial class StudentInfoGeneral : ContentPage
     {
         var result = await DisplayAlert("Подтверждение действия", "Точно хотите удалить студента?", "Да", "Нет");
         if (!result) return;
-        var db = new University();
+        var stud = new StudCont();
         var student = BindingContext as Student;
-        db.Grades.RemoveRange(db.Grades.Where(g => g.StudentsId == student!.StudentId));
-        db.Students.Remove(student!);
-        await db.SaveChangesAsync();
+        await stud.Delete(student!.StudentId);
         await Navigation.PopAsync();
         BindingContext = null;
     }

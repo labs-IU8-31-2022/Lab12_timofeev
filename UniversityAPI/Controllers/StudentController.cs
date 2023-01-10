@@ -58,7 +58,8 @@ public class StudentController : ControllerBase
             return NotFound();
         }
 
-        _db.Students.Update(student);
+        var stud = await _db.Grades.FindAsync(student.StudentId);
+        _db.Entry(stud).CurrentValues.SetValues(student);
         await _db.SaveChangesAsync();
         return Ok();
     }

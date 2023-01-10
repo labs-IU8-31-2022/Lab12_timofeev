@@ -55,7 +55,7 @@ public partial class GradeEditAndAdd : ContentPage
         }
 
         Button.IsEnabled = false;
-        var db = new University();
+        var grade = new GradeCont();
         Grade.Russian = int.TryParse(Rus.Text, out _) ? Convert.ToInt32(Rus.Text) : null;
         Grade.English = int.TryParse(Eng.Text, out _) ? Convert.ToInt32(Eng.Text) : null;
         Grade.DiscreteMath = int.TryParse(Dis.Text, out _) ? Convert.ToInt32(Dis.Text) : null;
@@ -63,15 +63,13 @@ public partial class GradeEditAndAdd : ContentPage
         Grade.Algorithms = int.TryParse(Alg.Text, out _) ? Convert.ToInt32(Alg.Text) : null;
         if (!_edit)
         {
-            await db.Grades.AddAsync(Grade);
+            await grade.Add(Grade);
         }
         else
         {
-            var grade = await db.Grades.FindAsync(Grade.GradeId);
-            db.Entry(grade).CurrentValues.SetValues(Grade);
+            await grade.Update(Grade);
         }
 
-        await db.SaveChangesAsync();
         await Navigation.PopAsync();
         Button.IsEnabled = true;
     }
@@ -93,10 +91,9 @@ public partial class GradeEditAndAdd : ContentPage
     {
         var result = await DisplayAlert("Подтверждение действия", "Точно хотите удалить оценки?", "Да", "Нет");
         if (!result) return;
-        var db = new University();
+        var grad = new GradeCont();
         var grade = BindingContext as Grade;
-        db.Grades.Remove(grade!);
-        await db.SaveChangesAsync();
+        await grad.Delete(grade!.GradeId);
         await Navigation.PopAsync();
     }
 }

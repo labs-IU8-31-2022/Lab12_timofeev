@@ -58,7 +58,8 @@ public class GradeController : ControllerBase
             return NotFound();
         }
 
-        _db.Grades.Update(grade);
+        var gr = await _db.Grades.FindAsync(grade.GradeId);
+        _db.Entry(gr).CurrentValues.SetValues(grade);
         await _db.SaveChangesAsync();
         return Ok();
     }
