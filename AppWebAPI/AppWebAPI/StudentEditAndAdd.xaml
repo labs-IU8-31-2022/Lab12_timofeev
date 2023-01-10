@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:appWebApi="clr-namespace:AppWebAPI;assembly=AppWebAPI"
+             x:Class="AppWebAPI.StudentEditAndAdd"
+             x:DataType="appWebApi:Student"
+             Title="">
+    <StackLayout Padding="7">
+        <Label Text="Имя" />
+        <Entry x:Name="Name" Placeholder="Введите имя" Text="{Binding StudentName}" TextChanged="NameTextChanged" />
+        <Label Text="Группа" />
+        <Picker x:Name="Picker1"
+                x:DataType="appWebApi:Group" ItemDisplayBinding="{Binding Path=GroupName}" />
+        <!--<Picker x:Name="Picker12"
+                SelectedItem="{Binding Source={RelativeSource FindAncestor, AncestorType={x:Type app:Student}}, Path=Groups}"
+                x:DataType="app:Group" ItemDisplayBinding="{Binding Path=GroupName}" SelectedIndex="{Binding GroupId}" />-->
+        <Label Text="Тип обучения" />
+        <Picker x:Name="Picker2" SelectedItem="{Binding Type}">
+            <Picker.Items>
+                <x:String>Бюджет</x:String>
+                <x:String>Платное</x:String>
+                <x:String>Целевое</x:String>
+                <x:String>БВИ</x:String>
+            </Picker.Items>
+        </Picker>
+        <Button x:Name="Button" Text="Сохранить" Clicked="StudAdd" />
+    </StackLayout>
+</ContentPage>

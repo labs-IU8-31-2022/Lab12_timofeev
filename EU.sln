@@ -10,6 +10,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.iOS", "App\App.iOS\App.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversityAPI", "UniversityAPI\UniversityAPI.csproj", "{0A114FA7-826C-40B8-8622-50F7F70B1A62}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppWebAPI", "AppWebAPI\AppWebAPI\AppWebAPI.csproj", "{62861822-E468-4DCF-A3A7-BA6D2A41BA47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppWebAPI.Droid", "AppWebAPI\AppWebAPI.Droid\AppWebAPI.Droid.csproj", "{1D4C84A6-24ED-49BE-8AD2-B0827C54E142}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppWebAPI.iOS", "AppWebAPI\AppWebAPI.iOS\AppWebAPI.iOS.csproj", "{CBBCC384-3FBB-4ACC-B4D0-F23CE51F9CBE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +42,18 @@ Global
 		{0A114FA7-826C-40B8-8622-50F7F70B1A62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A114FA7-826C-40B8-8622-50F7F70B1A62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A114FA7-826C-40B8-8622-50F7F70B1A62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62861822-E468-4DCF-A3A7-BA6D2A41BA47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62861822-E468-4DCF-A3A7-BA6D2A41BA47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62861822-E468-4DCF-A3A7-BA6D2A41BA47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62861822-E468-4DCF-A3A7-BA6D2A41BA47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D4C84A6-24ED-49BE-8AD2-B0827C54E142}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D4C84A6-24ED-49BE-8AD2-B0827C54E142}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D4C84A6-24ED-49BE-8AD2-B0827C54E142}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D4C84A6-24ED-49BE-8AD2-B0827C54E142}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBBCC384-3FBB-4ACC-B4D0-F23CE51F9CBE}.Debug|Any CPU.ActiveCfg = Debug|iPhoneSimulator
+		{CBBCC384-3FBB-4ACC-B4D0-F23CE51F9CBE}.Debug|Any CPU.Build.0 = Debug|iPhoneSimulator
+		{CBBCC384-3FBB-4ACC-B4D0-F23CE51F9CBE}.Release|Any CPU.ActiveCfg = Release|iPhoneSimulator
+		{CBBCC384-3FBB-4ACC-B4D0-F23CE51F9CBE}.Release|Any CPU.Build.0 = Release|iPhoneSimulator
 	EndGlobalSection
 	GlobalSection(RiderSharedRunConfigurations) = postSolution
 		File = Docker.run\EU SQL server.run.xml

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:androidSpecific="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            xmlns:app="clr-namespace:AppWebAPI;assembly=App"
+            xmlns:appWebApi="clr-namespace:AppWebAPI;assembly=AppWebAPI"
+            x:Class="AppWebAPI.StudentInfo"
+            androidSpecific:TabbedPage.ToolbarPlacement="Top"
+            Title="Информация о студенте" x:DataType="appWebApi:StudentInfo">
+    <TabbedPage.Children>
+        <appWebApi:StudentInfoGeneral TabIndex="0" Title="Основная информация" BindingContext="{Binding}" />
+        <appWebApi:StudentInfoGrades TabIndex="1" Title="Оценки" BindingContext="{Binding}" />
+    </TabbedPage.Children>
+</TabbedPage>

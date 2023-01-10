@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AppWebAPI"
+             x:Class="AppWebAPI.MainPage"
+             Title="Электронный журнал">
+
+    <StackLayout Spacing="4">
+        <Label x:Name="StudNum" FontSize="20" FontAttributes="Bold" FontFamily="Lobster" />
+        <Label x:Name="GroupNum" FontSize="20" FontAttributes="Bold" FontFamily="Lobster" />
+        <Label x:Name="Address" FontSize="20" FontAttributes="Bold" Text="IP address Web API"/>
+        <Entry x:Name="Entry" Placeholder="Введите адрес web api в формате ip:port" TextChanged="RouteTextChange"/>
+        <Button x:Name="StudButton" Text="Список студентов" Clicked="StudList" VerticalOptions="EndAndExpand" />
+        <Button x:Name="GroupButton" Text="Список групп" Clicked="GroupList" VerticalOptions="End" />
+        <!-- Place new controls here -->
+    </StackLayout>
+
+</ContentPage>

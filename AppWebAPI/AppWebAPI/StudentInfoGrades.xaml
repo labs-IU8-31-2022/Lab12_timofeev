@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:appWebApi="clr-namespace:AppWebAPI;assembly=AppWebAPI"
+             x:Class="AppWebAPI.StudentInfoGrades" x:DataType="appWebApi:Student">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Text="Русский" HorizontalOptions="Center" />
+                <Label Grid.Column="1" Text="Английский" HorizontalOptions="Center" />
+                <Label Grid.Column="2" Text="Дискретная математика" HorizontalOptions="Center" />
+                <Label Grid.Column="3" Text="Физика" HorizontalOptions="Center" />
+                <Label Grid.Column="4" Text="Алгоритмические языки" HorizontalOptions="Center" />
+            </Grid>
+            <ListView x:Name="GradeList" ItemSelected="OnItemSelected" ItemsSource="{Binding Grades}" Margin="5"
+                      VerticalScrollBarVisibility="Never">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell x:DataType="appWebApi:Grade">
+                            <ViewCell.View>
+                                <Grid Padding="5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Text="{Binding Russian}" />
+                                    <Label Grid.Column="1" Text="{Binding English}" />
+                                    <Label Grid.Column="2" Text="{Binding DiscreteMath}" />
+                                    <Label Grid.Column="3" Text="{Binding Physics}" />
+                                    <Label Grid.Column="4" Text="{Binding Algorithms}" />
+                                </Grid>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
