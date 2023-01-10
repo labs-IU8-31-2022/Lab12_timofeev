@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Droid", "App\App.Droid\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.iOS", "App\App.iOS\App.iOS.csproj", "{B0DEFD72-E6FD-4443-9908-31D0E3EE1406}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversityAPI", "UniversityAPI\UniversityAPI.csproj", "{0A114FA7-826C-40B8-8622-50F7F70B1A62}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,10 @@ Global
 		{B0DEFD72-E6FD-4443-9908-31D0E3EE1406}.Debug|Any CPU.Build.0 = Debug|iPhoneSimulator
 		{B0DEFD72-E6FD-4443-9908-31D0E3EE1406}.Release|Any CPU.ActiveCfg = Release|iPhoneSimulator
 		{B0DEFD72-E6FD-4443-9908-31D0E3EE1406}.Release|Any CPU.Build.0 = Release|iPhoneSimulator
+		{0A114FA7-826C-40B8-8622-50F7F70B1A62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A114FA7-826C-40B8-8622-50F7F70B1A62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A114FA7-826C-40B8-8622-50F7F70B1A62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A114FA7-826C-40B8-8622-50F7F70B1A62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(RiderSharedRunConfigurations) = postSolution
 		File = Docker.run\EU SQL server.run.xml
